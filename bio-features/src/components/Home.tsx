@@ -58,7 +58,6 @@ const Home = () => {
         }
         features = features.filter(f => f.displayName.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0 ||
             f.epKeywords.find(keyword => keyword.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0));
-        console.log(features, filters);
         setLastPage(Math.ceil(features.length / perPage));
         if (features.length === 0) {
             setLastPage(1);

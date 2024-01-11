@@ -32,7 +32,7 @@ const FeaturesDisplay = (props: {
 
                 })
             }, DEBOUNCE_TIME_MS),
-        [props.filters]
+        [props.filters.s]
 
     )
 
