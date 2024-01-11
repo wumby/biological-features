@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo} from 'react';
 import { Feature } from "../models/Features";
 import { Filters } from "../models/Filters";
 import '../Style/feature-display.scss';
@@ -62,7 +62,7 @@ const FeaturesDisplay = (props: {
     }
 
     let noResults;
-    if (props.features.length == 0) {
+    if (props.features.length === 0) {
         noResults = <div>
             <h3>Your search has no results</h3>
         </div>

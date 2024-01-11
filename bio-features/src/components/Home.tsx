@@ -41,12 +41,12 @@ const Home = () => {
     };
 
     useEffect(() => {
-        const features = quickSort(data.data.features);
+        const features = data.data.features;
         const categories = data.data.featureCategories;
         (
             async () => {
                 await setAllFeatures(features);
-                await setFilteredFeatures(features.slice(0, 20));
+                await setFilteredFeatures(quickSort(features.slice(0, 20)));
                 await setCategories(categories);
                 await setLastPage(Math.floor(features.length / perPage))
                 await categories.map(category => setCategoryMap(map => new Map(map.set(category.sid.id,category.name))))
@@ -72,7 +72,7 @@ const Home = () => {
         if (features.length === 0) {
             setLastPage(1);
         }
-        setFilteredFeatures(features.slice(filters.count, filters.page * perPage));
+        setFilteredFeatures(quickSort(features.slice(filters.count, filters.page * perPage)));
 
     }, [filters])
 
