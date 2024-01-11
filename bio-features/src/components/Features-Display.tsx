@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Feature } from "../models/Features";
 import { Filters } from "../models/Filters";
 import '../Style/feature-display.scss';
@@ -11,28 +11,22 @@ const FeaturesDisplay = (props: {
     filters: Filters,
     setFilters: (filters: Filters) => void,
     lastPage: number,
-    categories: Category[]
+    categories: Category[],
+    categoryMap: Map<number, string>
 
 }) => {
     const DEBOUNCE_TIME_MS = 500;
-    let myMap = new Map<number, string>();
-    for (let i = 0; i < props.categories.length; i++) {
-        myMap.set(props.categories[i].sid.id, props.categories[i].name);
-    }
-
 
     const search = useMemo(
         () =>
             debounce((s: string) => {
                 props.setFilters({
-
                     ...props.filters,
                     s: s
 
                 })
             }, DEBOUNCE_TIME_MS),
         [props.filters.s]
-
     )
 
     const next = () => {
@@ -40,7 +34,6 @@ const FeaturesDisplay = (props: {
             ...props.filters,
             page: props.filters.page + 1,
             count: (props.filters.count + 20)
-
         })
     }
 
@@ -69,7 +62,7 @@ const FeaturesDisplay = (props: {
     }
 
     let noResults;
-    if(props.features.length==0){
+    if (props.features.length == 0) {
         noResults = <div>
             <h3>Your search has no results</h3>
         </div>
@@ -80,7 +73,6 @@ const FeaturesDisplay = (props: {
             ...props.filters,
             category: category
         })
-
     }
 
     return (
@@ -115,7 +107,7 @@ const FeaturesDisplay = (props: {
                                     <span className="card-name" ><strong>{Features.displayName}</strong> </span>
                                     <div className="category" >
                                         <span > Category: &nbsp;</span>
-                                        <span>{myMap.get(Features.categorySid.id)}</span>
+                                        <span>{props.categoryMap.get(Features.categorySid.id)}</span>
                                     </div>
                                     <div className="keywords" >
                                         {Features.epKeywords.map((keywords, index) => {

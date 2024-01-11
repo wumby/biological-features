@@ -11,6 +11,7 @@ const Home = () => {
     const [filteredFeatures, setFilteredFeatures] = useState<Feature[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [map, setMap] = useState<Map<string,Feature[]>>(new Map());
+    const [categoryMap, setCategoryMap] = useState<Map<number,string>>(new Map());
     const [filters, setFilters] = useState<Filters>({
         s: '',
         page: 1,
@@ -48,7 +49,9 @@ const Home = () => {
                 await setFilteredFeatures(features.slice(0, 20));
                 await setCategories(categories);
                 await setLastPage(Math.floor(features.length / perPage))
+                await categories.map(category => setCategoryMap(map => new Map(map.set(category.sid.id,category.name))))
             }
+            
         )()
     }, [])
 
@@ -60,7 +63,7 @@ const Home = () => {
             }
             else{
                 features = features.filter(f => f.categorySid.id === parseInt(filters.category));
-                map.set(filters.category,features);
+                setMap(map => new Map(map.set(filters.category,features)));
             }
         }
         features = features.filter(f => f.displayName.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0 ||
@@ -75,7 +78,7 @@ const Home = () => {
 
     return (
         <div>
-            <FeaturesDisplay features={filteredFeatures} filters={filters} setFilters={setFilters} lastPage={lastPage} categories={categories} />
+            <FeaturesDisplay features={filteredFeatures} filters={filters} setFilters={setFilters} lastPage={lastPage} categories={categories} categoryMap ={categoryMap} />
         </div>
 
     );
