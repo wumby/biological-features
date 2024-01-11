@@ -38,7 +38,6 @@ const Home = () => {
         return array;
     };
 
-
     useEffect(() => {
         const features = quickSort(data.data.features);
         const categories = data.data.featureCategories;
@@ -51,7 +50,6 @@ const Home = () => {
             }
         )()
     }, [])
-
 
     useEffect(() => {
         let features = allFeatures;
@@ -68,7 +66,6 @@ const Home = () => {
         setFilteredFeatures(features.slice(filters.count, filters.page * perPage));
 
     }, [filters])
-
 
     return (
         <div>

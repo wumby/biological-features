@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Feature } from "../models/Features";
 import { Filters } from "../models/Filters";
-import '../Style/feature-display.scss';
+import '../style/feature-display.scss';
 import debounce from "lodash.debounce";
 import { Category } from '../models/Category';
 
@@ -44,6 +44,7 @@ const FeaturesDisplay = (props: {
 
         })
     }
+
     const prev = () => {
         props.setFilters({
             ...props.filters,
@@ -67,8 +68,6 @@ const FeaturesDisplay = (props: {
     else {
         nextButton = <div className="page-btn-disabled"></div>
     }
-
-
 
     const filterCategory = (category: string) => {
         props.setFilters({

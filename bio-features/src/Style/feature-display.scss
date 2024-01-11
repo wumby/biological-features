@@ -1,5 +1,5 @@
 $border:#e6e6e6;
-
+$background:rgba(var(--bs-tertiary-bg-rgb));
 
 .feature-display-container {
     display: flex;
@@ -20,7 +20,7 @@ $border:#e6e6e6;
     border: 1px solid $border;
     box-shadow: 10px 5px 5px $border;
     border-radius: 5px;
-    background-color: rgba(var(--bs-tertiary-bg-rgb)) !important;
+    background-color: $background !important;
 }
 
 .col {
@@ -35,6 +35,7 @@ $border:#e6e6e6;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    padding:5px;
 }
 
 .filter-container {
@@ -47,7 +48,7 @@ $border:#e6e6e6;
     border: 1px solid $border;
     box-shadow: 10px 5px 5px $border;
     border-radius: 5px;
-    background-color: rgba(var(--bs-tertiary-bg-rgb)) !important;
+    background-color: $background !important;
     width: 10%;
     height:30px;
     margin-bottom:40px;

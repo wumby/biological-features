@@ -3,10 +3,7 @@ export interface Feature{
     displayName: string;
     epKeywords: string[];
     categorySid: Sid
-
 }
-
-
 
 export interface Sid{
     id: number

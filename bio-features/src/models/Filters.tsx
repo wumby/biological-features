@@ -3,6 +3,4 @@ export interface Filters {
     page: number;
     count:number;
     category: string;
-
-
 }
