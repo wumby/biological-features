@@ -68,6 +68,13 @@ const FeaturesDisplay = (props: {
         nextButton = <div className="page-btn-disabled"></div>
     }
 
+    let noResults;
+    if(props.filters.count == 0 && props.filters.page == props.lastPage){
+        noResults = <div>
+            <h3>Your search has no results</h3>
+        </div>
+    }
+
     const filterCategory = (category: string) => {
         props.setFilters({
             ...props.filters,
@@ -135,6 +142,7 @@ const FeaturesDisplay = (props: {
                 <div className='buttons'>
                     {prevButton}
                     {nextButton}
+                    {noResults}
                 </div>
             </div>
         </>

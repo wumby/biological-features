@@ -10,6 +10,7 @@ const Home = () => {
     const [allFeatures, setAllFeatures] = useState<Feature[]>([]);
     const [filteredFeatures, setFilteredFeatures] = useState<Feature[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
+    const [map, setMap] = useState<Map<string,Feature[]>>(new Map());
     const [filters, setFilters] = useState<Filters>({
         s: '',
         page: 1,
@@ -54,7 +55,13 @@ const Home = () => {
     useEffect(() => {
         let features = allFeatures;
         if (filters.category !== "0") {
-            features = features.filter(f => f.categorySid.id === parseInt(filters.category))
+            if(map.has(filters.category)){
+                features = map.get(filters.category)!;
+            }
+            else{
+                features = features.filter(f => f.categorySid.id === parseInt(filters.category));
+                map.set(filters.category,features);
+            }
         }
         features = features.filter(f => f.displayName.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0 ||
             f.epKeywords.find(keyword => keyword.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0));
