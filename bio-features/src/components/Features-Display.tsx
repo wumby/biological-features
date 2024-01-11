@@ -24,7 +24,6 @@ const FeaturesDisplay = (props: {
     const search = useMemo(
         () =>
             debounce((s: string) => {
-                console.log(props.filters)
                 props.setFilters({
 
                     ...props.filters,
