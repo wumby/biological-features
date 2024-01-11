@@ -69,7 +69,7 @@ const FeaturesDisplay = (props: {
     }
 
     let noResults;
-    if(props.filters.count == 0 && props.filters.page == props.lastPage){
+    if(props.features.length==0){
         noResults = <div>
             <h3>Your search has no results</h3>
         </div>
