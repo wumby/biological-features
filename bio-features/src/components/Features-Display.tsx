@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Feature } from "../models/Features";
 import { Filters } from "../models/Filters";
-import '../style/feature-display.scss';
+import '../Style/feature-display.scss';
 import debounce from "lodash.debounce";
 import { Category } from '../models/Category';
 
