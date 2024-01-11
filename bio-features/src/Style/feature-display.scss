@@ -1,0 +1,80 @@
+$border:#e6e6e6;
+
+
+.feature-display-container {
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.card-name {
+    display: inline-block;
+    width: 100%;
+    border-bottom: .5px solid $border;
+    font-size: 1.2em;
+}
+
+
+.card-body {
+    border: 1px solid $border;
+    box-shadow: 10px 5px 5px $border;
+    border-radius: 5px;
+    background-color: rgba(var(--bs-tertiary-bg-rgb)) !important;
+}
+
+.col {
+    padding: 10px !important;
+}
+
+
+
+.keywords {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-container {
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.page-btn{
+    margin: 10px;
+    border: 1px solid $border;
+    box-shadow: 10px 5px 5px $border;
+    border-radius: 5px;
+    background-color: rgba(var(--bs-tertiary-bg-rgb)) !important;
+    width: 10%;
+    height:30px;
+    margin-bottom:40px;
+}
+
+
+
+
+.search-container{
+    width: 30%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.filter-container{
+    display: flex;
+}
+
+.input-group-append{
+    width: 30%;
+}
+
+.dropdown-text{
+    font-size: 1.1em;
+}
