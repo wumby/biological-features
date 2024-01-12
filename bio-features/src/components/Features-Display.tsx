@@ -111,12 +111,9 @@ const FeaturesDisplay = (props: {
                                     </div>
                                     <div className="keywords" >
                                         {Features.epKeywords.map((keywords, index) => {
-                                            if (index === 0) {
+                                             if (index === 0) {
                                                 return (<span key={index}>Keywords: &nbsp;</span>)
                                             }
-                                            return null;
-                                        })}
-                                        {Features.epKeywords.map((keywords, index) => {
                                             if (index === Features.epKeywords.length - 1) {
                                                 return (<span key={index}>{keywords}  </span>)
                                             }
