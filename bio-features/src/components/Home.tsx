@@ -66,8 +66,10 @@ const Home = () => {
                 setMap(map => new Map(map.set(filters.category,features)));
             }
         }
-        features = features.filter(f => f.displayName.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0 ||
+        if(filters.s !== ''){
+            features = features.filter(f => f.displayName.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0 ||
             f.epKeywords.find(keyword => keyword.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0));
+        }
         setLastPage(Math.ceil(features.length / perPage));
         if (features.length === 0) {
             setLastPage(1);
